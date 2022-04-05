@@ -8,8 +8,12 @@ import { Request, Response } from 'express';
  * @param {Request} req
  * @param {Response} res
  */
-export const getAppInfo = (req: Request, res: Response) => {
+export async function getAppInfo(req: Request, res: Response) {
   const result = homeService.getAppInfo();
-
-  res.json(result);
-};
+  console.log(result);
+  res.json({
+    number: 1,
+    name: 'John',
+    gender: 'male',
+  });
+}

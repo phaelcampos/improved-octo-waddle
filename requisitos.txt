@@ -1,0 +1,58 @@
+1: O sistema deve ser capaz de inserir/editar/remover sabores de pizza, ao registrar um novo sabor de pizza, deve ser registrado os ingredientes que serão utilizados na pizza
+endpoints: 
+-post -/api/pizza
+-get -/api/pizza
+-put -/api/pizza
+-delete -/api/pizza
+
+campos necessários:
+{
+	sabor: string(36)
+	preco: double(4)
+	disponivel: boolean
+	ingredients_id:int(4)
+}
+
+
+
+2: O sistema deve ser capaz de criar, remover, fechar e editar(só é possivel mudar o sabor caso o pedido tenha sido feito em no maximo 5 minutos) pedidos.
+endpoint:
+--post -/api/orders
+-get -/api/orders
+-put -/api/orders
+-delete -/api/orders
+
+{
+	sabores: list<sabores>
+	acompanhamentos: list<acompanhamentos>
+	valor total: double(4)
+}
+
+3: o sistema deve ser capaz de recuperar pedidos antigos e em aberto e mostrar seus detalhes
+endpoints:
+-get -/api/orders/:id
+
+
+{
+	sabores: list<sabores,valores>
+	acompanhamentos: list<acompanhamentos,valores>
+	valor total: double(4)
+}
+
+
+4: O sistema deve ser capaz de armazenar e calcular os ingredientes necessários para cada sabor de pizza, caso um ingrediente esteja em falta, o sabor de pizza deve ficar desabiliatado para o cardápio
+-post -/api/ingredientes
+{
+	ingrediente:string(36)
+	qtd_disponivel:int(6)
+	disponivel: boolean
+	sabores_utilizados: list<string>
+}
+
+5: O sistema deve ser capaz de armazenar produtos diversos e computar a quantidade.
+{
+	produto:string(36)
+	qtd_disponivel:int(6)
+	disponivel: boolean
+	preco:double(4)
+}

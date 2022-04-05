@@ -4,6 +4,12 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.get('/', homeController.getAppInfo);
+router.get('/teste', async (req, res) => {
+  await homeController.getAppInfo(req, res);
+});
+
+router.post('/teste', async (req, res) => {
+  await homeController.getAppInfo(req, res);
+});
 
 export default router;
