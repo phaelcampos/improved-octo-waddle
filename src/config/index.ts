@@ -8,7 +8,9 @@ const CONFIG = {
     VERSION: pkg.version,
     DESCRIPTION: pkg.description,
     AUTHORS: pkg.authors,
-    HOST: process.env.APP_HOST,
+    HOST:
+      process.env.APP_HOST ||
+      'mongodb+srv://teste:teste123@cluster0.wumc5.mongodb.net/test',
     BASE_URL: process.env.API_BASE_URL,
     PORT: process.env.NODE_ENV === 'test' ? 8888 : process.env.PORT || 8080,
     ENV: process.env.NODE_ENV,
