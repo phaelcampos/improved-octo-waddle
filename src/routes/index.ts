@@ -1,16 +1,32 @@
-import * as homeController from '@/controller/home';
-import { querySchema } from '@/schemas/pizzaSchema';
+import * as homeController from '@/controller/pizzaFlavours';
+import {
+  insertPizzaFlavour,
+  editPizzaFlavour,
+  deletePizzaFlavour,
+} from '@/schemas/pizzaSchema';
 const validator = require('express-joi-validation').createValidator({});
 import { Router } from 'express';
 
 const router = Router();
 
-router.get('/teste', async (req, res) => {
-  await homeController.getAppInfo(req, res);
+router.put('/flavour', validator.body(editPizzaFlavour), async (req, res) => {
+  await homeController.editPizzaFlavour(req, res);
 });
 
-router.post('/teste', validator.body(querySchema), async (req, res) => {
-  await homeController.getAppInfo(req, res);
-});
+router.post(
+  '/flavour',
+  validator.body(insertPizzaFlavour),
+  async (req, res) => {
+    await homeController.insertPizzaFlavour(req, res);
+  },
+);
+
+router.delete(
+  '/flavour',
+  validator.body(deletePizzaFlavour),
+  async (req, res) => {
+    await homeController.deletePizzaFlavour(req, res);
+  },
+);
 
 export default router;
