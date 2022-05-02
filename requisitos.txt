@@ -14,7 +14,6 @@ campos necessários:
 }
 
 
-
 2: O sistema deve ser capaz de criar, remover, fechar e editar(só é possivel mudar o sabor caso o pedido tenha sido feito em no maximo 5 minutos) pedidos.
 endpoint:
 --post -/api/orders
@@ -56,3 +55,7 @@ endpoints:
 	disponivel: boolean
 	preco:double(4)
 }
+
+
+
+depois criar usuarios

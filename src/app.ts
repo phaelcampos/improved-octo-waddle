@@ -4,7 +4,7 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import routes from '@/routes';
+import routes from '@/routes/flavoursRoutes';
 
 export const createApp = (): express.Application => {
   const app = express();
